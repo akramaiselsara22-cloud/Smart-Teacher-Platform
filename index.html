@@ -1,0 +1,2037 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة المعلم الذكي | AISEL TeachFlow — أضخم مكتبة برومبتات تعليمية معيارية</title>
+    <!-- Google Fonts: Cairo & Alexandria -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-primary: #071224;
+            --bg-secondary: #0d1e38;
+            --bg-card: #12284b;
+            --bg-card-hover: #193664;
+            --accent-cyan: #00b4d8;
+            --accent-cyan-glow: #00f0ff;
+            --accent-gold: #e5b95f;
+            --accent-gold-hover: #f3ce7a;
+            --accent-purple: #a855f7;
+            --danger-red: #ef4444;
+            --success-green: #10b981;
+            --color-telegram: #229ED9;
+            --color-facebook: #1877F2;
+            --color-whatsapp: #25D366;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(229, 185, 95, 0.2);
+            --border-glow: rgba(0, 180, 216, 0.35);
+            --font-heading: 'Cairo', sans-serif;
+            --font-body: 'Alexandria', sans-serif;
+            --shadow-lg: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+            --shadow-glow: 0 0 25px rgba(0, 180, 216, 0.25);
+            --gold-glow: 0 0 25px rgba(229, 185, 95, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        /* Multi-layer Content Protection */
+        body, html {
+            font-family: var(--font-body);
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.8;
+            direction: rtl;
+            overflow-x: hidden;
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+            -webkit-touch-callout: none !important;
+        }
+
+        img {
+            -webkit-user-drag: none !important;
+            user-drag: none !important;
+            pointer-events: none !important;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--bg-card);
+            border-radius: 5px;
+            border: 1px solid var(--border-glow);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-cyan);
+        }
+
+        /* Animations */
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(0, 180, 216, 0.2); }
+            50% { box-shadow: 0 0 30px rgba(0, 180, 216, 0.55); }
+        }
+        @keyframes floatAnim {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-7px); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        /* Top Sticky Announcement Banner */
+        .top-offer-bar {
+            background: linear-gradient(90deg, #b45309, #d97706, #e5b95f, #d97706, #b45309);
+            background-size: 200% auto;
+            animation: shimmer 5s linear infinite;
+            color: #071224;
+            padding: 10px 15px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .top-offer-bar .offer-badge {
+            background: #071224;
+            color: var(--accent-gold);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 800;
+        }
+        .top-offer-bar a.offer-btn {
+            background: #071224;
+            color: #fff;
+            padding: 5px 16px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .top-offer-bar a.offer-btn:hover {
+            background: #12284b;
+            color: var(--accent-cyan-glow);
+            transform: scale(1.05);
+        }
+
+        /* Header / Navbar */
+        header {
+            background: rgba(13, 30, 56, 0.94);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 45px;
+            z-index: 999;
+            padding: 14px 25px;
+        }
+        .nav-container {
+            max-width: 1350px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #071224;
+            box-shadow: var(--shadow-glow);
+        }
+        .logo-text h1 {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+        .logo-text span {
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            display: block;
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* Header Social Buttons */
+        .nav-social-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.25s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .nav-social-btn.facebook { background: #1877F2; }
+        .nav-social-btn.facebook:hover { background: #0c63d4; transform: translateY(-2px); }
+        .nav-social-btn.telegram { background: #229ED9; }
+        .nav-social-btn.telegram:hover { background: #1a80b0; transform: translateY(-2px); }
+        .nav-social-btn.whatsapp { background: #25D366; }
+        .nav-social-btn.whatsapp:hover { background: #1eb956; transform: translateY(-2px); }
+
+        .btn-whatsapp-header {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.88rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s;
+        }
+        .btn-whatsapp-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            color: #fff;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1350px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        /* Hero Banner Image Container */
+        .banner-showcase {
+            margin: 25px auto 10px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--border-glow);
+            box-shadow: 0 0 35px rgba(0, 180, 216, 0.3), 0 15px 40px rgba(0,0,0,0.7);
+            position: relative;
+            background: #000;
+        }
+        .hero-banner-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .banner-showcase:hover .hero-banner-img {
+            transform: scale(1.015);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 40px 0 35px;
+            text-align: center;
+            position: relative;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 180, 216, 0.12);
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan-glow);
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: pulseGlow 3s infinite;
+        }
+        .hero h2 {
+            font-family: var(--font-heading);
+            font-size: 2.7rem;
+            font-weight: 900;
+            line-height: 1.35;
+            margin-bottom: 18px;
+            background: linear-gradient(135deg, #ffffff 40%, var(--accent-cyan-glow) 75%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p.lead {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 880px;
+            margin: 0 auto 30px;
+            line-height: 1.9;
+        }
+
+        /* Social Quick Connect Hub in Hero */
+        .hero-social-hub {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+        .social-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 22px;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.92rem;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s;
+        }
+        .social-pill.whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+        .social-pill.whatsapp:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
+        }
+        .social-pill.telegram {
+            background: linear-gradient(135deg, #229ED9, #0088cc);
+        }
+        .social-pill.telegram:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(34, 158, 217, 0.45);
+        }
+        .social-pill.facebook {
+            background: linear-gradient(135deg, #1877F2, #0d5cbf);
+        }
+        .social-pill.facebook:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(24, 119, 242, 0.45);
+        }
+
+        /* Floating Social Dock */
+        .floating-social-dock {
+            position: fixed;
+            left: 20px;
+            bottom: 30px;
+            z-index: 1050;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .floating-social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.45rem;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+        .floating-social-btn:hover {
+            transform: scale(1.15) translateY(-4px);
+        }
+        .floating-social-btn.wa { background: #25D366; }
+        .floating-social-btn.tg { background: #229ED9; }
+        .floating-social-btn.fb { background: #1877F2; }
+        .floating-social-btn .tooltip {
+            position: absolute;
+            right: 60px;
+            background: #0d1e38;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            white-space: nowrap;
+            border: 1px solid var(--border-color);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.25s;
+        }
+        .floating-social-btn:hover .tooltip {
+            opacity: 1;
+            right: 65px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px auto 20px;
+            max-width: 1100px;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 22px 15px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: var(--shadow-glow);
+        }
+        .stat-card .num {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--accent-gold);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .stat-card .label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* Framework 12 Rules Pill Bar */
+        .framework-section {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            padding: 35px;
+            margin: 35px 0 45px;
+            box-shadow: var(--shadow-lg);
+        }
+        .framework-title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .framework-title h3 {
+            font-family: var(--font-heading);
+            font-size: 1.7rem;
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .framework-title p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 6px;
+        }
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            gap: 12px;
+        }
+        .framework-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 12px 14px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #e2e8f0;
+            transition: all 0.25s;
+        }
+        .framework-item:hover {
+            border-color: var(--accent-cyan);
+            background: var(--bg-card-hover);
+            transform: translateY(-3px);
+        }
+        .framework-item i {
+            color: var(--accent-cyan);
+            font-size: 1rem;
+        }
+
+        /* Controls: Search and Filters */
+        .controls-panel {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            border: 1px solid var(--border-glow);
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-lg);
+        }
+        .search-box {
+            position: relative;
+            margin-bottom: 25px;
+        }
+        .search-box i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-cyan);
+            font-size: 1.2rem;
+        }
+        .search-box input {
+            width: 100%;
+            background: var(--bg-primary);
+            border: 2px solid rgba(0, 180, 216, 0.25);
+            padding: 16px 55px 16px 20px;
+            border-radius: 14px;
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            transition: all 0.3s;
+        }
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent-cyan-glow);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+        }
+
+        /* Filter Tabs */
+        .filter-group {
+            margin-bottom: 18px;
+        }
+        .filter-label {
+            font-size: 0.88rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .pill-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .pill-tab {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+            padding: 8px 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.88rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s;
+        }
+        .pill-tab:hover {
+            border-color: var(--accent-cyan);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        .pill-tab.active {
+            background: linear-gradient(135deg, var(--accent-cyan), #0077b6);
+            color: #071224;
+            font-weight: 800;
+            border-color: var(--accent-cyan-glow);
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.4);
+        }
+        .pill-tab.active-stage {
+            background: linear-gradient(135deg, var(--accent-gold), #b45309);
+            color: #071224;
+            font-weight: 800;
+            border-color: var(--accent-gold-hover);
+        }
+
+        /* Cards Grid */
+        .grid-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .grid-header h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: #fff;
+        }
+        .grid-header .count-badge {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        /* Card Styles */
+        .prompt-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: var(--shadow-lg);
+        }
+        .prompt-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-cyan);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            gap: 10px;
+        }
+        .card-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .badge-primary { background: rgba(0, 180, 216, 0.18); color: var(--accent-cyan-glow); border: 1px solid rgba(0, 180, 216, 0.3); }
+        .badge-stage { background: rgba(229, 185, 95, 0.18); color: var(--accent-gold); border: 1px solid rgba(229, 185, 95, 0.3); }
+        .badge-free { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #10b981; }
+        .badge-locked { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        /* Free Card Content Box */
+        .prompt-preview-box {
+            background: rgba(7, 18, 36, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 14px;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            max-height: 160px;
+            overflow-y: auto;
+            position: relative;
+        }
+        .prompt-preview-box .highlight {
+            color: var(--accent-cyan-glow);
+            font-weight: 700;
+        }
+        .prompt-preview-box .variable {
+            background: rgba(229, 185, 95, 0.2);
+            color: var(--accent-gold);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.8rem;
+        }
+
+        /* Locked Card Blur Overlay */
+        .locked-wrapper {
+            position: relative;
+            background: rgba(7, 18, 36, 0.8);
+            border-radius: 12px;
+            padding: 20px 14px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(229, 185, 95, 0.3);
+        }
+        .blurred-text {
+            filter: blur(5px);
+            opacity: 0.35;
+            user-select: none;
+            pointer-events: none;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            line-height: 1.7;
+        }
+        .locked-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, rgba(18, 40, 75, 0.88) 0%, rgba(7, 18, 36, 0.96) 100%);
+            gap: 8px;
+            text-align: center;
+            padding: 15px;
+        }
+        .locked-overlay i.lock-icon {
+            font-size: 2rem;
+            color: var(--accent-gold);
+            animation: pulseGlow 3s infinite;
+        }
+        .locked-overlay span {
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: #fff;
+        }
+        .locked-overlay small {
+            font-size: 0.78rem;
+            color: var(--accent-gold);
+        }
+
+        /* Action Buttons */
+        .card-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+        .btn-action {
+            flex: 1;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.25s;
+            text-decoration: none;
+        }
+        .btn-copy {
+            background: rgba(0, 180, 216, 0.15);
+            color: var(--accent-cyan-glow);
+            border: 1px solid var(--accent-cyan);
+        }
+        .btn-copy:hover {
+            background: var(--accent-cyan);
+            color: #071224;
+            box-shadow: 0 0 15px rgba(0, 180, 216, 0.4);
+        }
+        .btn-unlock {
+            background: linear-gradient(135deg, var(--accent-gold), #b45309);
+            color: #071224;
+            font-weight: 800;
+        }
+        .btn-unlock:hover {
+            background: linear-gradient(135deg, var(--accent-gold-hover), #d97706);
+            transform: scale(1.02);
+            box-shadow: var(--gold-glow);
+        }
+
+        /* Giant Value Offer Section */
+        .offer-section {
+            background: linear-gradient(145deg, #0d1e38, #162f56);
+            border: 2px solid var(--accent-gold);
+            border-radius: 24px;
+            padding: 50px 40px;
+            margin: 60px 0;
+            box-shadow: var(--gold-glow);
+            position: relative;
+            overflow: hidden;
+        }
+        .offer-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(229, 185, 95, 0.25) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .offer-content {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .offer-details h3 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            color: #fff;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        .offer-details h3 span {
+            color: var(--accent-gold);
+        }
+        .offer-details p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        .features-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 25px;
+        }
+        .features-list li {
+            font-size: 0.9rem;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .features-list li i {
+            color: var(--accent-cyan-glow);
+            font-size: 1.1rem;
+        }
+
+        /* Pricing Card */
+        .pricing-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+        .pricing-tag {
+            background: #ef4444;
+            color: #fff;
+            padding: 4px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .price-old {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-bottom: 5px;
+        }
+        .price-current {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--accent-gold);
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+        .price-current span {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #cbd5e1;
+        }
+        .pricing-guarantee {
+            font-size: 0.85rem;
+            color: var(--success-green);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-weight: 600;
+        }
+        .btn-order-giant {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: #fff;
+            padding: 16px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+            width: 100%;
+        }
+        .btn-order-giant:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+            color: #fff;
+        }
+
+        /* Comparison Table Section */
+        .comparison-section {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            padding: 40px 30px;
+            margin: 50px 0;
+        }
+        .comp-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .comp-title h3 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: #fff;
+        }
+        .comp-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+        .comp-table th, .comp-table td {
+            padding: 16px 20px;
+            text-align: right;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .comp-table th {
+            background: var(--bg-card);
+            color: var(--accent-gold);
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+        }
+        .comp-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal-box {
+            background: var(--bg-secondary);
+            border: 2px solid var(--accent-gold);
+            border-radius: 24px;
+            max-width: 600px;
+            width: 100%;
+            padding: 35px;
+            position: relative;
+            box-shadow: var(--gold-glow);
+            animation: floatAnim 4s ease-in-out infinite;
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .modal-close:hover {
+            background: #ef4444;
+        }
+        .modal-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .modal-header .icon {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 12px;
+        }
+        .modal-header h3 {
+            font-family: var(--font-heading);
+            font-size: 1.7rem;
+            color: #fff;
+            line-height: 1.3;
+        }
+        .modal-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 6px;
+        }
+        .modal-body-content {
+            background: var(--bg-card);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border-color);
+        }
+        .modal-body-content ul {
+            list-style: none;
+            font-size: 0.9rem;
+            color: #e2e8f0;
+            line-height: 1.9;
+        }
+        .modal-body-content ul li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .modal-body-content ul li i {
+            color: var(--accent-cyan);
+        }
+
+        /* Toast Protection Notification */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #12284b;
+            border: 2px solid #ef4444;
+            color: #fff;
+            padding: 16px 24px;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.4);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            transform: translateY(120px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+        }
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .toast-notification i {
+            font-size: 1.5rem;
+            color: #ef4444;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border-color);
+            padding: 50px 0 35px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .footer-social-section {
+            margin-bottom: 30px;
+        }
+        .footer-social-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            color: #fff;
+            margin-bottom: 18px;
+        }
+        .footer-social-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+        .footer-social-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 12px 24px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+        .footer-social-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow);
+        }
+        .footer-social-card.wa:hover { border-color: #25D366; color: #25D366; }
+        .footer-social-card.tg:hover { border-color: #229ED9; color: #229ED9; }
+        .footer-social-card.fb:hover { border-color: #1877F2; color: #1877F2; }
+
+        .footer-credits {
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            color: #e2e8f0;
+        }
+        .footer-credits strong {
+            color: var(--accent-gold);
+        }
+        .footer-sponsor {
+            color: var(--accent-cyan);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero h2 { font-size: 2.1rem; }
+            .offer-content { grid-template-columns: 1fr; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .features-list { grid-template-columns: 1fr; }
+            .top-offer-bar { font-size: 0.85rem; }
+            .floating-social-dock { display: none; }
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <!-- 1. Top Sticky Offer Banner -->
+    <div class="top-offer-bar">
+        <span class="offer-badge"><i class="fa-solid fa-bolt"></i> عرض الورشة الحصري</span>
+        <span>امتلك الحقيبة الكاملة (1,100+ برومبت معياري + 50 لعبة ويب + أدلة NotebookLM) بـ <strong>399 ج.م</strong> فقط بدلاً من <del>699 ج.م</del>!</span>
+        <a href="https://wa.me/201037489146?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%AD%D8%B5%D9%88%D9%84%20%D8%B9%D9%84%D9%89%20%D8%A7%D9%84%D8%AD%D9%82%D9%8A%D8%A8%D8%A9%20%D8%A7%D9%84%D9%83%D8%A7%D9%85%D9%84%D8%A9%20%D9%84%D9%85%D9%83%D8%AA%D8%A8%D8%A9%20%D8%A8%D8%B1%D9%88%D9%85%D8%A8%D8%AA%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%85%20%D8%A7%D9%84%D8%B0%D9%83%D9%8A%20(399%20%D8%AC.%D9%85)" class="offer-btn" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> اطلب العرض الآن
+        </a>
+    </div>
+
+    <!-- 2. Header / Navbar -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-box">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-compass"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>منصة المعلم الذكي</h1>
+                    <span>AI NAVIGATORS | AISEL TeachFlow OS</span>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <!-- Social Channels in Header -->
+                <a href="https://wa.me/201037489146" class="nav-social-btn whatsapp" title="واتساب" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="https://t.me/+L695Phe56ecxZjc8" class="nav-social-btn telegram" title="مجتمع التليجرام" target="_blank">
+                    <i class="fa-brands fa-telegram"></i>
+                </a>
+                <a href="https://www.facebook.com/abo.aisel.elmasry" class="nav-social-btn facebook" title="فيسبوك" target="_blank">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#offer-box" class="btn-action btn-unlock" style="padding: 8px 18px; border-radius: 25px;">
+                    <i class="fa-solid fa-fire"></i> عرض الـ 399 ج.م
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating Social Dock (Quick Reach) -->
+    <div class="floating-social-dock">
+        <a href="https://wa.me/201037489146" class="floating-social-btn wa" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="tooltip">واتساب: 01037489146</span>
+        </a>
+        <a href="https://t.me/+L695Phe56ecxZjc8" class="floating-social-btn tg" target="_blank">
+            <i class="fa-brands fa-telegram"></i>
+            <span class="tooltip">مجتمع التيليجرام</span>
+        </a>
+        <a href="https://www.facebook.com/abo.aisel.elmasry" class="floating-social-btn fb" target="_blank">
+            <i class="fa-brands fa-facebook-f"></i>
+            <span class="tooltip">صفحة الفيسبوك</span>
+        </a>
+    </div>
+
+    <div class="container">
+
+        <!-- 3. Official Panoramic Banner Showcase -->
+        <div class="banner-showcase">
+            <img src="banner.jpg" alt="AI NAVIGATORS — Guiding Intelligent Future & Community — Abo Aisel" class="hero-banner-img">
+        </div>
+
+        <!-- 4. Hero Section -->
+        <section class="hero">
+            <div class="hero-badge">
+                <i class="fa-solid fa-award"></i> منظومة الذكاء الاصطناعي التوليدي للمعلم المعاصر 2026
+            </div>
+            <h2>حوّل تحضيرك وإدارتك الصفية إلى تجربة تفاعلية ممتعة في ثوانٍ</h2>
+            <p class="lead">
+                وداعاً للنصوص المعلبة والبرومبتات العشوائية. أول منصة تعليمية عربية مبنية على <strong>معيار الـ 12 قاعدة (AISEL Prompt 12 Framework)</strong> لتمكين المعلم من صياغة الحصص، وأوراق العمل، والبوكليت، والإنفوجرافيك، وتحويل الدروس لألعاب برمجية تنشر فوراً كروابط ويب!
+            </p>
+
+            <!-- Social Hub Quick Connect -->
+            <div class="hero-social-hub">
+                <a href="https://wa.me/201037489146?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A3%D8%A8%D9%88%20%D8%A3%D9%8A%D8%B3%D9%84%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AD%D9%82%D9%8A%D8%A8%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%85%20%D8%A7%D9%84%D8%B0%D9%83%D9%8A" class="social-pill whatsapp" target="_blank">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.25rem;"></i> تواصل واتساب: 01037489146
+                </a>
+                <a href="https://t.me/+L695Phe56ecxZjc8" class="social-pill telegram" target="_blank">
+                    <i class="fa-brands fa-telegram" style="font-size: 1.25rem;"></i> انضم لمجتمع التليجرام
+                </a>
+                <a href="https://www.facebook.com/abo.aisel.elmasry" class="social-pill facebook" target="_blank">
+                    <i class="fa-brands fa-facebook-f" style="font-size: 1.25rem;"></i> تابعنا على فيسبوك
+                </a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="num">+1,100</div>
+                    <div class="label">برومبت معياري احترافي</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">150</div>
+                    <div class="label">نموذج بوكليت مدرسي مصغر</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">50</div>
+                    <div class="label">لعبة تفاعلية بكود الويب HTML</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">10</div>
+                    <div class="label">مكتبات تخصصية متكاملة</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">3</div>
+                    <div class="label">مراحل: ابتدائي • إعدادي • ثانوي</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. The 12-Rules Architecture Bar -->
+        <section class="framework-section">
+            <div class="framework-title">
+                <h3><i class="fa-solid fa-microchip"></i> معيار AISEL Prompt 12 — لماذا لا تفشل برومبتاتنا أبداً؟</h3>
+                <p>كل برومبت داخل هذه المنصة صُمم هندسياً ليقود الذكاء الاصطناعي عبر 12 خطوة تشخيصية قبل كتابة حرف واحد</p>
+            </div>
+            <div class="framework-grid">
+                <div class="framework-item"><i class="fa-solid fa-user-tie"></i> 1. الدور التعليمي المحدد</div>
+                <div class="framework-item"><i class="fa-solid fa-list-check"></i> 2. المهمة الصريحة</div>
+                <div class="framework-item"><i class="fa-solid fa-compass"></i> 3. السياق والبيئة الصفية</div>
+                <div class="framework-item"><i class="fa-solid fa-bullseye"></i> 4. ناتج التعلم الملزم</div>
+                <div class="framework-item"><i class="fa-solid fa-file-import"></i> 5. حصر المدخلات والمصادر</div>
+                <div class="framework-item"><i class="fa-solid fa-circle-question"></i> 6. المقابلة التشخيصية</div>
+                <div class="framework-item"><i class="fa-solid fa-gavel"></i> 7. قواعد التنفيذ الصارمة</div>
+                <div class="framework-item"><i class="fa-solid fa-triangle-exclamation"></i> 8. المحاذير وحماية الطالب</div>
+                <div class="framework-item"><i class="fa-solid fa-shoe-prints"></i> 9. خطوات العمل المتسلسلة</div>
+                <div class="framework-item"><i class="fa-solid fa-table"></i> 10. بنية المخرج والجداول</div>
+                <div class="framework-item"><i class="fa-solid fa-clipboard-check"></i> 11. اختبار ومعايير القبول</div>
+                <div class="framework-item"><i class="fa-solid fa-shield-halved"></i> 12. مراجعة الجودة وملاحظة الناتج</div>
+            </div>
+        </section>
+
+        <!-- 6. Interactive Filter & Search Controls -->
+        <section class="controls-panel">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="ابحث في أكثر من 1,100 برومبت (مثال: إدارة صفية، لعبة تفاعلية، بوكليت، جدول ضرب، روتين، نوت بوك...)" oninput="filterCards()">
+            </div>
+
+            <!-- Stage Filter -->
+            <div class="filter-group">
+                <div class="filter-label"><i class="fa-solid fa-layer-group"></i> المرحلة الدراسية المستهدفة:</div>
+                <div class="pill-tabs" id="stageTabs">
+                    <button class="pill-tab active-stage active" onclick="setStage('all', this)"><i class="fa-solid fa-globe"></i> جميع المراحل (1,100+)</button>
+                    <button class="pill-tab" onclick="setStage('ابتدائي', this)"><i class="fa-solid fa-child"></i> المرحلة الابتدائية (100 برومبت/قسم)</button>
+                    <button class="pill-tab" onclick="setStage('إعدادي', this)"><i class="fa-solid fa-user-graduate"></i> المرحلة الإعدادية (35 برومبت/قسم)</button>
+                    <button class="pill-tab" onclick="setStage('ثانوي', this)"><i class="fa-solid fa-landmark"></i> المرحلة الثانوية (15 برومبت/قسم)</button>
+                </div>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="filter-group">
+                <div class="filter-label"><i class="fa-solid fa-folder-open"></i> تخصص ومخرجات الحقيبة:</div>
+                <div class="pill-tabs" id="categoryTabs">
+                    <button class="pill-tab active" onclick="setCategory('all', this)"><i class="fa-solid fa-border-all"></i> الكل</button>
+                    <button class="pill-tab" onclick="setCategory('إدارة صفية', this)"><i class="fa-solid fa-users-gear"></i> الإدارة الصفية (150)</button>
+                    <button class="pill-tab" onclick="setCategory('روتين مدرسي', this)"><i class="fa-solid fa-clock-rotate-left"></i> الروتين والإجراءات (150)</button>
+                    <button class="pill-tab" onclick="setCategory('خطط دروس', this)"><i class="fa-solid fa-book-open"></i> خطط الدروس والتحضير (65)</button>
+                    <button class="pill-tab" onclick="setCategory('أوراق عمل', this)"><i class="fa-solid fa-file-pen"></i> أوراق العمل الذكية (65)</button>
+                    <button class="pill-tab" onclick="setCategory('بطاقات تعليمية', this)"><i class="fa-solid fa-clone"></i> البطاقات التعليمية (65)</button>
+                    <button class="pill-tab" onclick="setCategory('ألعاب ويب', this)"><i class="fa-solid fa-gamepad"></i> الألعاب التفاعلية وكود الويب (50)</button>
+                    <button class="pill-tab" onclick="setCategory('بوكليت', this)"><i class="fa-solid fa-book-bookmark"></i> البوكليت والمذكرات (150)</button>
+                    <button class="pill-tab" onclick="setCategory('إنفوجرافيك', this)"><i class="fa-solid fa-chart-pie"></i> الإنفوجرافيك والخرائط الذهنية</button>
+                    <button class="pill-tab" onclick="setCategory('نوت بوك وبوربوينت', this)"><i class="fa-solid fa-laptop-code"></i> استوديو NotebookLM والوسائط</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Prompts Cards Grid -->
+        <div class="grid-header">
+            <h3><i class="fa-solid fa-boxes-stacked"></i> استعراض مكتبة البرومبتات المعيارية</h3>
+            <div class="count-badge" id="visibleCount">يتم عرض: 30 نموذجاً مختاراً من أصل 1,100+</div>
+        </div>
+
+        <div class="cards-grid" id="cardsGrid">
+
+            <!-- Card 1: Free Sample (Classroom Management) -->
+            <div class="prompt-card" data-category="إدارة صفية" data-stage="ابتدائي" data-status="free">
+                <div>
+                    <div class="card-top">
+                        <div class="card-badges">
+                            <span class="badge badge-primary"><i class="fa-solid fa-users-gear"></i> إدارة صفية</span>
+                            <span class="badge badge-stage">ابتدائي</span>
+                        </div>
+                        <span class="badge badge-free"><i class="fa-solid fa-unlock"></i> عينة تجريبية مفتوحة</span>
+                    </div>
+                    <h4 class="card-title">برومبت معالجة الحركة المستمرة ومغادرة المقعد المتكررة</h4>
+                    <p class="card-desc">بناء بروتوكول صفي إيجابي يعتمد التعليم الصريح والإشارات البصرية بدلاً من التوبيخ، متوافق مع معايير EEF و IRIS Center.</p>
+                    <div class="prompt-preview-box">
+                        <span class="highlight">أنت مساعد إدارة صفية وخبير تربوي في سلوك المرحلة الابتدائية.</span> لا تقدم حلولاً مباشرة؛ اسألني مقابلة من 12 سؤالاً تبدأ بـ: ما المادة، وما اسم الصف، وكم عدد الطلاب في الغرفة؟ بعد اكتمال الإجابات، اعرض بطاقة اعتماد بعنوان: <span class="variable">@@خطة الهدوء الحركي@@</span> متضمنة: الروتين الصريح، والإشارات غير اللفظية، والبديل الحركي المشروع للطفل.
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-copy" onclick="copyPrompt(this, 'أنت مساعد إدارة صفية وخبير تربوي في سلوك المرحلة الابتدائية. لا تقدم حلولاً مباشرة؛ اسألني مقابلة من 12 سؤالاً تبدأ بـ: ما المادة، وما اسم الصف، وكم عدد الطلاب في الغرفة؟ بعد اكتمال الإجابات، اعرض بطاقة اعتماد متضمنة: الروتين الصريح، والإشارات غير اللفظية، والبديل الحركي المشروع للطفل.')">
+                        <i class="fa-solid fa-copy"></i> نسخ البرومبت المجاني
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 2: Free Sample (Interactive Game) -->
+            <div class="prompt-card" data-category="ألعاب ويب" data-stage="ابتدائي" data-status="free">
+                <div>
+                    <div class="card-top">
+                        <div class="card-badges">
+                            <span class="badge badge-primary"><i class="fa-solid fa-gamepad"></i> ألعاب ويب HTML</span>
+                            <span class="badge badge-stage">ابتدائي</span>
+                        </div>
+                        <span class="badge badge-free"><i class="fa-solid fa-unlock"></i> عينة تجريبية مفتوحة</span>
+                    </div>
+                    <h4 class="card-title">لعبة صائد الحروف والكلمات (GAME01 — كود صفحة ويب كاملة)</h4>
+                    <p class="card-desc">توليد لعبة تفاعلية تعمل بملف واحد index.html بدون أي تثبيت؛ تسحب وتفلت الحروف لصيد الكلمة مع تغذية صوتية وبصرية ملهمة.</p>
+                    <div class="prompt-preview-box">
+                        <span class="highlight">أنت مبرمج تعليمي ومطور ألعاب واجهات أمامية Frontend.</span> المهمة: كتابة ملف <span class="variable">index.html</span> مستقل ومكتفٍ ذاتياً (HTML + CSS + JS) بلعبة صائد الحروف لدرس <span class="variable">@@اسم_الدرس@@</span>. الشروط: ألوان مبهجة تناسب سن 7 سنوات، أزرار لمس كبيرة، عداد نقاط مع أصوات تشجيعية، متوافقة 100% مع شاشات الموبايل والسبورات الذكية.
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-copy" onclick="copyPrompt(this, 'أنت مبرمج تعليمي ومطور ألعاب واجهات أمامية Frontend. المهمة: كتابة ملف index.html مستقل ومكتفٍ ذاتياً (HTML + CSS + JS) بلعبة صائد الحروف. الشروط: ألوان مبهجة تناسب سن 7 سنوات، أزرار لمس كبيرة، عداد نقاط مع أصوات تشجيعية، متوافقة 100% مع شاشات الموبايل والسبورات الذكية.')">
+                        <i class="fa-solid fa-copy"></i> نسخ البرومبت المجاني
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 3: Free Sample (NotebookLM Prompt) -->
+            <div class="prompt-card" data-category="نوت بوك وبوربوينت" data-stage="ثانوي" data-status="free">
+                <div>
+                    <div class="card-top">
+                        <div class="card-badges">
+                            <span class="badge badge-primary"><i class="fa-solid fa-laptop-code"></i> NotebookLM Studio</span>
+                            <span class="badge badge-stage">ثانوي</span>
+                        </div>
+                        <span class="badge badge-free"><i class="fa-solid fa-unlock"></i> عينة تجريبية مفتوحة</span>
+                    </div>
+                    <h4 class="card-title">برومبت تحويل المصادر الأكاديمية إلى بودكاست وموجز تنفيذي</h4>
+                    <p class="card-desc">التوجيه المخصص لـ NotebookLM لإنتاج حوار صوتي تمهيدي احترافي بصوت ناطق يكسر تعقيد المنهج ويربطه بالواقع العملي.</p>
+                    <div class="prompt-preview-box">
+                        <span class="highlight">التوجيه المخصص لـ NotebookLM Audio Overview:</span> قُد الحوار بصوت دافئ ومحفز كخبير يجلس مع المتدرب. ركز بنسبة 70% على إزالة الرهبة والتمهيد النفسي، و30% على المفاهيم الجوهرية للدرس المرفوع <span class="variable">@@المصدر_المرفوع@@</span> مع منع المصطلحات المعقدة غير المفسرة.
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-copy" onclick="copyPrompt(this, 'التوجيه المخصص لـ NotebookLM Audio Overview: قُد الحوار بصوت دافئ ومحفز كخبير يجلس مع المتدرب. ركز بنسبة 70% على إزالة الرهبة والتمهيد النفسي، و30% على المفاهيم الجوهرية للدرس المرفوع مع منع المصطلحات المعقدة غير المفسرة.')">
+                        <i class="fa-solid fa-copy"></i> نسخ البرومبت المجاني
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 4: Locked (Classroom Management Middle) -->
+            <div class="prompt-card" data-category="إدارة صفية" data-stage="إعدادي" data-status="locked">
+                <div>
+                    <div class="card-top">
+                        <div class="card-badges">
+                            <span class="badge badge-primary"><i class="fa-solid fa-users-gear"></i> إدارة صفية</span>
+                            <span class="badge badge-stage">إعدادي</span>
+                        </div>
+                        <span class="badge badge-locked"><i class="fa-solid fa-lock"></i> محتوى حصري</span>
+                    </div>
+                    <h4 class="card-title">إدارة نوبات العناد وتحدي السلطة في سن المراهقة المبكرة</h4>
+                    <p class="card-desc">استراتيجيات حفظ ماء الوجه وتجنب الصدام العلني أمام الزملاء، مع عقد اتفاق شراكة أكاديمي ذاتي ومحفز.</p>
+                    <div class="locked-wrapper">
+                        <div class="blurred-text">
+                            أنت مستشار تربوي متخصص في ديناميكيات سلوك المراهقين. قم بتحليل موقف التحدي السلوكي وبناء تدخل غير صدامي يتضمن: خفض التصعيد في 30 ثانية، لغة الخيارات المحددة مسبقاً، وإعادة التوجيه الهادئ مع الحفاظ التام على مكانة المعلم وهيبة الصف...
+                        </div>
+                        <div class="locked-overlay">
+                            <i class="fa-solid fa-lock lock-icon"></i>
+                            <span>البرومبت الكامل مشفر ومتاح ضمن الحقيبة</span>
+                            <small>معيار الـ 12 قاعدة + بطاقة الاعتماد</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-unlock" onclick="openUnlockModal('إدارة نوبات العناد وتحدي السلطة للمرحلة الإعدادية')">
+                        <i class="fa-solid fa-key"></i> فتح البرومبت كاملاً (399 ج.م)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 5: Locked (Lesson Plan Secondary) -->
+            <div class="prompt-card" data-category="خطط دروس" data-stage="ثانوي" data-status="locked">
+                <div>
+                    <div class="card-top">
+                        <div class="card-badges">
+                            <span class="badge badge-primary"><i class="fa-solid fa-book-open"></i> خطط دروس</span>
+                            <span class="badge badge-stage">ثانوي</span>
+                        </div>
+                        <span class="badge badge-locked"><i class="fa-solid fa-lock"></i> محتوى حصري</span>
+                    </div>
+                    <h4 class="card-title">هندسة خطة درس متمايزة للمرحلة الثانوية وفق هرم بلوم المطور</h4>
+                    <p class="card-desc">توليد مسارات تعلم ثلاثية المستويات (المستوى المعياري، التحدي المتقدم، والدعم العلاجي) مع أنشطة التفكير النقدي.</p>
+                    <div class="locked-wrapper">
+                        <div class="blurred-text">
+                            أنت مصمم تعليمي متخصص في المناهج الثانوية المتقدمة. استخدم نموذج الـ 12 قاعدة لتصميم خطة متكاملة تشمل: التهيئة الحافزة بسؤال إشكالي، مسار الاستقصاء المستقل، جدول التمايز، والتقويم التكويني متعدد الخيارات مع تحليل البدائل المضللة...
+                        </div>
+                        <div class="locked-overlay">
+                            <i class="fa-solid fa-lock lock-icon"></i>
+                            <span>متاح في مكتبة الـ 65 برومبت خطة درس</span>
+                            <small>يشمل بنك الأسئلة والتقويم العلاجي</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-unlock" onclick="openUnlockModal('خطة الدرس المتمايزة للمرحلة الثانوية')">
+                        <i class="fa-solid fa-key"></i> فتح البرومبت كاملاً (399 ج.م)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 6: Locked (Interactive Web Game Middle) -->
+            <div class="prompt-card" data-category="ألعاب ويب" data-stage="إعدادي" data-status="locked">
+                <div>
+                    <div class="card-top">
+                        <div class="card-badges">
+                            <span class="badge badge-primary"><i class="fa-solid fa-gamepad"></i> ألعاب ويب HTML</span>
+                            <span class="badge badge-stage">إعدادي</span>
+                        </div>
+                        <span class="badge badge-locked"><i class="fa-solid fa-lock"></i> محتوى حصري</span>
+                    </div>
+                    <h4 class="card-title">لعبة غرفة الهروب التعليمية (Escape Room Web Generator)</h4>
+                    <p class="card-desc">توليد لعبة ويب ثلاثية الأبواب المغلقة؛ لا يُفتح الباب إلا بحل لغز أكاديمي في العلوم أو الرياضيات أو اللغات.</p>
+                    <div class="locked-wrapper">
+                        <div class="blurred-text">
+                            اكتب كود index.html للعبة غرفة الهروب التفاعلية لمرحلة الإعدادي. تتضمن اللعبة 3 ألغاز متدرجة ومؤقت زمني تنازلي وتأثيرات صوتية غامضة وشاشات فوز مبهجة قابلة للرفع على جيت هاب أو الاستضافة في دقيقة واحدة...
+                        </div>
+                        <div class="locked-overlay">
+                            <i class="fa-solid fa-lock lock-icon"></i>
+                            <span>ضمن حزمة الـ 50 لعبة ويب الجاهزة</span>
+                            <small>كود HTML/JS فوري للسبورة الذكية</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-unlock" onclick="openUnlockModal('لعبة غرفة الهروب التعليمية Web Game')">
+                        <i class="fa-solid fa-key"></i> فتح البرومبت كاملاً (399 ج.م)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 7: Locked (Booklet Design) -->
+            <div class="prompt-card" data-category="بوكليت" data-stage="ابتدائي" data-status="locked">
+                <div>
+                    <div class="card-top">
+                        <div class="card-badges">
+                            <span class="badge badge-primary"><i class="fa-solid fa-book-bookmark"></i> البوكليت المدرسي</span>
+                            <span class="badge badge-stage">ابتدائي</span>
+                        </div>
+                        <span class="badge badge-locked"><i class="fa-solid fa-lock"></i> محتوى حصري</span>
+                    </div>
+                    <h4 class="card-title">برومبت تصميم بوكليت الطالب المصغر (صفحة فهم + صفحة تدريب)</h4>
+                    <p class="card-desc">صياغة ملزمة دراسية تفاعلية مقاس A4 أو A5 بنظام النصفين: ملخص بصري بالخرائط + 6 تمارين متدرجة بالرموز والرسوم.</p>
+                    <div class="locked-wrapper">
+                        <div class="blurred-text">
+                            أنت خبير إخراج وتأليف مذكرات مدرسية. قم بصياغة البوكليت المصغر المكون من صفحتين بالضبط لدرس @@اسم الدرس@@: الصفحة الأولى خريطة بصرية مع تلخيص الحالات الشاذة، والصفحة الثانية تدريبات ثلاثية المستويات...
+                        </div>
+                        <div class="locked-overlay">
+                            <i class="fa-solid fa-lock lock-icon"></i>
+                            <span>متاح في مكتبة 150 نموذج بوكليت</span>
+                            <small>جاهز للطباعة والنسخ الفوري</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-unlock" onclick="openUnlockModal('برومبت تصميم البوكليت المدرسي المصغر')">
+                        <i class="fa-solid fa-key"></i> فتح البرومبت كاملاً (399 ج.م)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 8: Locked (School Routine) -->
+            <div class="prompt-card" data-category="روتين مدرسي" data-stage="ابتدائي" data-status="locked">
+                <div>
+                    <div class="card-top">
+                        <div class="card-badges">
+                            <span class="badge badge-primary"><i class="fa-solid fa-clock-rotate-left"></i> روتين وإجراءات</span>
+                            <span class="badge badge-stage">ابتدائي</span>
+                        </div>
+                        <span class="badge badge-locked"><i class="fa-solid fa-lock"></i> محتوى حصري</span>
+                    </div>
+                    <h4 class="card-title">هندسة روتين الدخول والـ 5 دقائق الأولى (Do Now Routine)</h4>
+                    <p class="card-desc">تحويل فوضى بداية الحصة إلى نظام ذاتي يبدأ فيه الطلاب بالمهمة اليومية على السبورة دون الحاجة لتوجيه لفظي متكرر.</p>
+                    <div class="locked-wrapper">
+                        <div class="blurred-text">
+                            أنت مستشار تصميم البيئات المدرسية الفعالة. طبق معيار Prompt 12 لبناء روتين بدء الحصة للمرحلة الابتدائية: ما الإجراء الصامت، ما إشارة لفت الانتباه المعتمدة، وكيف يتم توزيع بطاقات المهام الدورية بكرامة وانضباط...
+                        </div>
+                        <div class="locked-overlay">
+                            <i class="fa-solid fa-lock lock-icon"></i>
+                            <span>متاح في مكتبة 150 برومبت روتين مدرسي</span>
+                            <small>يوفر 15 دقيقة مهدورة من كل حصة</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-unlock" onclick="openUnlockModal('روتين الدخول والـ 5 دقائق الأولى في الحصة')">
+                        <i class="fa-solid fa-key"></i> فتح البرومبت كاملاً (399 ج.م)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 9: Locked (Smart Worksheets) -->
+            <div class="prompt-card" data-category="أوراق عمل" data-stage="إعدادي" data-status="locked">
+                <div>
+                    <div class="card-top">
+                        <div class="card-badges">
+                            <span class="badge badge-primary"><i class="fa-solid fa-file-pen"></i> أوراق عمل</span>
+                            <span class="badge badge-stage">إعدادي</span>
+                        </div>
+                        <span class="badge badge-locked"><i class="fa-solid fa-lock"></i> محتوى حصري</span>
+                    </div>
+                    <h4 class="card-title">ورقة العمل الاستقصائية الذكية: محقق الأخطاء العلمية</h4>
+                    <p class="card-desc">تصميم ورقة عمل يتولى فيها الطالب دور "المحقق" لاكتشاف الأخطاء الشائعة وتصحيحها، مع نموذج الإجابة ومعايير الروبريك.</p>
+                    <div class="locked-wrapper">
+                        <div class="blurred-text">
+                            صمم ورقة عمل استقصائية بنظام المحقق. قم بإيراد 4 مسائل محلولة بأخطاء مفاهيمية خادعة شائعة بين طلاب الإعدادي، واطلب من الطالب تحديد موضع الخطأ وتبرير الصواب ووضع التوصية لمنع تكراره...
+                        </div>
+                        <div class="locked-overlay">
+                            <i class="fa-solid fa-lock lock-icon"></i>
+                            <span>ضمن مكتبة الـ 65 برومبت أوراق عمل</span>
+                            <small>تشمل سلم التقدير اللفظي Rubrics</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-unlock" onclick="openUnlockModal('ورقة عمل محقق الأخطاء الاستقصائية')">
+                        <i class="fa-solid fa-key"></i> فتح البرومبت كاملاً (399 ج.م)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 10: Locked (Infographic & Mindmaps) -->
+            <div class="prompt-card" data-category="إنفوجرافيك" data-stage="ثانوي" data-status="locked">
+                <div>
+                    <div class="card-top">
+                        <div class="card-badges">
+                            <span class="badge badge-primary"><i class="fa-solid fa-chart-pie"></i> إنفوجرافيك وخرائط</span>
+                            <span class="badge badge-stage">ثانوي</span>
+                        </div>
+                        <span class="badge badge-locked"><i class="fa-solid fa-lock"></i> محتوى حصري</span>
+                    </div>
+                    <h4 class="card-title">تحويل الدروس المعقدة إلى خريطة ذهنية ثلاثية الأبعاد (3D Map)</h4>
+                    <p class="card-desc">توليد برومبتات الوصف البصري والروابط الهيكلية لتصدير خرائط ذهنية فائقة الوضوح لبرامج XMind و Canva و Midjourney.</p>
+                    <div class="locked-wrapper">
+                        <div class="blurred-text">
+                            حول المفاهيم المترابطة في درس @@الموضوع@@ إلى هيكل بصري شجري ثلاثي الأبعاد مقاس A4. قم بترميز الفروع بالألوان وتحديد النقاط المحورية وروابط التأثير والتأثر مع نصوص شارحة وموجزة في 4 كلمات فقط لكل عقدة...
+                        </div>
+                        <div class="locked-overlay">
+                            <i class="fa-solid fa-lock lock-icon"></i>
+                            <span>متاح في مكتبة 50 برومبت خرائط ذهنية</span>
+                            <small>معيار الـ 12 قاعدة للتصميم البصري</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-unlock" onclick="openUnlockModal('برومبت الخريطة الذهنية ثلاثية الأبعاد')">
+                        <i class="fa-solid fa-key"></i> فتح البرومبت كاملاً (399 ج.م)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 11: Locked (PowerPoint Lab) -->
+            <div class="prompt-card" data-category="نوت بوك وبوربوينت" data-stage="ثانوي" data-status="locked">
+                <div>
+                    <div class="card-top">
+                        <div class="card-badges">
+                            <span class="badge badge-primary"><i class="fa-solid fa-laptop-code"></i> PowerPoint Lab</span>
+                            <span class="badge badge-stage">ثانوي</span>
+                        </div>
+                        <span class="badge badge-locked"><i class="fa-solid fa-lock"></i> محتوى حصري</span>
+                    </div>
+                    <h4 class="card-title">برومبت عروض PowerPoint التفاعلية (11 نمط شرائح احترافي)</h4>
+                    <p class="card-desc">توليد نص وكود VBA للشرائح متضمناً الأنشطة التفاعلية، كسر الجليد، ودراسات الحالة، جاهزة للاستيراد الفوري في أوفيس.</p>
+                    <div class="locked-wrapper">
+                        <div class="blurred-text">
+                            أنت خبير تصميم شرائح العروض التعليمية. ابنِ عرضاً من 12 شريحة تفاعلية لدرس @@الموضوع@@: شريحة الصدمة الفكرية، شريحة المقارنة المتناظرة، وشريحة التقويم الختامي السريع مع ملاحظات المتحدث السردية الكاملة...
+                        </div>
+                        <div class="locked-overlay">
+                            <i class="fa-solid fa-lock lock-icon"></i>
+                            <span>متاح في مختبر عروض PowerPoint الـ 11</span>
+                            <small>كود وأشرطة تفاعلية وملاحظات الملقي</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-unlock" onclick="openUnlockModal('مختبر عروض PowerPoint التفاعلية')">
+                        <i class="fa-solid fa-key"></i> فتح البرومبت كاملاً (399 ج.م)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 12: Locked (Flashcards) -->
+            <div class="prompt-card" data-category="بطاقات تعليمية" data-stage="ابتدائي" data-status="locked">
+                <div>
+                    <div class="card-top">
+                        <div class="card-badges">
+                            <span class="badge badge-primary"><i class="fa-solid fa-clone"></i> بطاقات تعليمية</span>
+                            <span class="badge badge-stage">ابتدائي</span>
+                        </div>
+                        <span class="badge badge-locked"><i class="fa-solid fa-lock"></i> محتوى حصري</span>
+                    </div>
+                    <h4 class="card-title">بطاقات التذكر النشط الذكية (Spaced Repetition Flashcards)</h4>
+                    <p class="card-desc">توليد بطاقات ثنائية الوجه (سؤال ذكي في الوجه + إجابة مفاهيمية ورمز تذكري في الظهر) قابلة للطباعة وتصديرها لتطبيق Anki.</p>
+                    <div class="locked-wrapper">
+                        <div class="blurred-text">
+                            أنشئ مجموعة من 20 بطاقة تعليمية تفاعلية لدرس @@الموضوع@@. الوجه: سؤال إثارة انتباه يعالج تشويشاً مفاهيمياً. الظهر: الإجابة النموذجية المحددة في سطرين مع تشبيه رمزي يساعد الطالب في التثبيت الذهني الدائم...
+                        </div>
+                        <div class="locked-overlay">
+                            <i class="fa-solid fa-lock lock-icon"></i>
+                            <span>ضمن مكتبة الـ 65 برومبت بطاقات</span>
+                            <small>مجهزة للطباعة السريعة والتطبيق الصفي</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-unlock" onclick="openUnlockModal('بطاقات التذكر النشط الذكية Flashcards')">
+                        <i class="fa-solid fa-key"></i> فتح البرومبت كاملاً (399 ج.م)
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 8. Giant Offer Section (399 EGP Offer) -->
+        <section class="offer-section" id="offer-box">
+            <div class="offer-content">
+                <div class="offer-details">
+                    <div class="hero-badge" style="background: rgba(229,185,95,0.15); border-color: var(--accent-gold); color: var(--accent-gold-hover);">
+                        <i class="fa-solid fa-tags"></i> عرض الشراء المخفض لمتدربي الورشة فقط
+                    </div>
+                    <h3>امتلك منظومة <span>المعلم الذكي الشاملة</span> واستعد لمستقبل التعليم</h3>
+                    <p>
+                        احصل على كافة الحقائب، والمكتبات النصية، وأكواد الألعاب التفاعلية، ودليل الـ Prompt 12 المعياري في باقة رقمية واحدة قابلة للتعديل والنسخ غير المحدود مدى الحياة.
+                    </p>
+                    <ul class="features-list">
+                        <li><i class="fa-solid fa-circle-check"></i> أكثر من 1,100 برومبت مصاغ بنظام الـ 12 قاعدة</li>
+                        <li><i class="fa-solid fa-circle-check"></i> 50 لعبة ويب تفاعلية بكود HTML5 مستقل</li>
+                        <li><i class="fa-solid fa-circle-check"></i> 150 نموذج بوكليت مدرسي مصغر جاهز للتنفيذ</li>
+                        <li><i class="fa-solid fa-circle-check"></i> دليل تحويل الدروس لمنتجات رقمية في NotebookLM</li>
+                        <li><i class="fa-solid fa-circle-check"></i> ملفات Word و PDF مفتوحة ومحررة بالكامل</li>
+                        <li><i class="fa-solid fa-circle-check"></i> دليل إعداد وكيل الذكاء الاصطناعي EduPrompt Chief</li>
+                        <li><i class="fa-solid fa-circle-check"></i> عروض PowerPoint التفاعلية وقوالب الفيديو</li>
+                        <li><i class="fa-solid fa-circle-check"></i> استشارات ودعم فني مستمر عبر مجتمع التليجرام</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-box">
+                    <div class="pricing-tag">وفر 43% اليوم</div>
+                    <div class="price-old">699 ج.م</div>
+                    <div class="price-current">399 <span>جنيه مصري</span></div>
+                    <div class="pricing-guarantee">
+                        <i class="fa-solid fa-shield-halved"></i> تسليم فوري للملفات عبر رابط تحميل خاص
+                    </div>
+                    <a href="https://wa.me/201037489146?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D9%81%D9%8A%20%D8%B9%D8%B1%D8%B6%20%D8%A7%D9%84%D8%AD%D9%82%D9%8A%D8%A8%D8%A9%20%D8%A7%D9%84%D9%83%D8%A7%D9%85%D9%84%D8%A9%20%D9%84%D9%85%D9%83%D8%AA%D8%A8%D8%A9%20%D8%A8%D8%B1%D9%88%D9%85%D8%A8%D8%AA%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%85%20%D8%A7%D9%84%D8%B0%D9%83%D9%8A%20(399%20%D8%AC.%D9%85)" class="btn-order-giant" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> اطلب الحقيبة الآن بـ 399 ج.م
+                    </a>
+                    <div style="margin-top: 15px; font-size: 0.8rem; color: var(--text-muted);">
+                        الدفع متاح عبر فودافون كاش أو إنستاباي أو التحويل البنكي
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Comparison Table -->
+        <section class="comparison-section">
+            <div class="comp-title">
+                <h3><i class="fa-solid fa-scale-balanced"></i> قارن بين التحضير التقليدي ومنظومة AISEL TeachFlow</h3>
+            </div>
+            <table class="comp-table">
+                <thead>
+                    <tr>
+                        <th>وجه المقارنة</th>
+                        <th>التحضير اليدوي / البرومبت العشوائي</th>
+                        <th>منظومة المعلم الذكي (Prompt 12)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>الوقت المستغرق للحصة</strong></td>
+                        <td>من ساعتين إلى 3 ساعات أسبوعياً</td>
+                        <td>أقل من 5 دقائق لتحضير حصة وأنشطة كاملة</td>
+                    </tr>
+                    <tr>
+                        <td><strong>جودة ودقة المخرجات</strong></td>
+                        <td>كلام معلب، كليشيهات، وتكرار سطحي</td>
+                        <td>مخرجات مشروطة بالـ 12 معياراً تربوياً دقيقاً</td>
+                    </tr>
+                    <tr>
+                        <td><strong>الوسائل التفاعلية</strong></td>
+                        <td>تحتاج لمصمم أو برامج معقدة واشتراكات</td>
+                        <td>توليد ألعاب ويب HTML5 بضغطة زر وتعمل فوراً</td>
+                    </tr>
+                    <tr>
+                        <td><strong>التعامل مع المشكلات الصفية</strong></td>
+                        <td>انفعال وردود أفعال تقليدية غير متسقة</td>
+                        <td>بروتوكولات سلوكية متوافقة مع مراجع عالمية</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ملائمة المرحلة العمرية</strong></td>
+                        <td>خطاب عام غير مخصص</td>
+                        <td>تمايز صارم بين الابتدائي والإعدادي والثانوي</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+
+    <!-- 10. Unlock Purchase Modal -->
+    <div class="modal-overlay" id="unlockModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeUnlockModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-header">
+                <div class="icon"><i class="fa-solid fa-lock-open"></i></div>
+                <h3 id="modalPromptTitle">فتح البرومبت كاملاً</h3>
+                <p>هذا البرومبت جزء من الحقيبة التعليمية الكاملة (+1,100 برومبت معياري)</p>
+            </div>
+            <div class="modal-body-content">
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> الحصول على البرومبت المعتمد كاملاً بنظام الـ 12 قاعدة.</li>
+                    <li><i class="fa-solid fa-check"></i> شفرات التخصيص للمراحل الابتدائية، الإعدادية، والثانوية.</li>
+                    <li><i class="fa-solid fa-check"></i> أكواد صفحات الويب التفاعلية ونماذج البوكليت المرتبطة.</li>
+                    <li><i class="fa-solid fa-check"></i> تحديثات مستمرة في مستندات Word و PDF مفتوحة المصدر.</li>
+                </ul>
+            </div>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <span style="font-size: 1.1rem; color: var(--text-muted); text-decoration: line-through;">699 ج.م</span>
+                <span style="font-family: var(--font-heading); font-size: 2.3rem; font-weight: 900; color: var(--accent-gold); margin-right: 12px;">399 ج.م</span>
+                <div style="font-size: 0.85rem; color: var(--accent-cyan-glow);">عرض خاص لمشتركي الورشة اليوم</div>
+            </div>
+            <a id="modalWhatsappLink" href="#" class="btn-order-giant" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> الحصول على الحقيبة وفتح هذا البرومبت
+            </a>
+        </div>
+    </div>
+
+    <!-- 11. Security Toast Notification -->
+    <div class="toast-notification" id="securityToast">
+        <i class="fa-solid fa-shield-halved"></i>
+        <div>
+            <strong style="display:block; color:#ef4444; margin-bottom:2px;">⚠️ تنبيه حماية الملكية الفكرية</strong>
+            <span>جميع محتويات المنصة والبرومبتات محمية بحقوق النشر. يُحظر النسخ غير المصرح به.</span>
+        </div>
+    </div>
+
+    <!-- 12. Footer with Full Social Hub -->
+    <footer>
+        <div class="container">
+            <!-- Social Community Hub in Footer -->
+            <div class="footer-social-section">
+                <div class="footer-social-title">
+                    <i class="fa-solid fa-circle-nodes" style="color: var(--accent-gold);"></i> تواصل وانضم إلى مجتمع AI NAVIGATORS
+                </div>
+                <div class="footer-social-links">
+                    <a href="https://wa.me/201037489146" class="footer-social-card wa" target="_blank">
+                        <i class="fa-brands fa-whatsapp" style="color: #25D366; font-size: 1.4rem;"></i>
+                        <span>واتساب مباشر: 01037489146</span>
+                    </a>
+                    <a href="https://t.me/+L695Phe56ecxZjc8" class="footer-social-card tg" target="_blank">
+                        <i class="fa-brands fa-telegram" style="color: #229ED9; font-size: 1.4rem;"></i>
+                        <span>قناة ومجتمع التيليجرام</span>
+                    </a>
+                    <a href="https://www.facebook.com/abo.aisel.elmasry" class="footer-social-card fb" target="_blank">
+                        <i class="fa-brands fa-facebook-f" style="color: #1877F2; font-size: 1.4rem;"></i>
+                        <span>حساب الفيسبوك الرسمي</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-credits">
+                إعداد وتطوير: <strong>Abo Aisel (أبو أيسل)</strong> | استشاري هندسة الأوامر والحلول التعليمية
+            </div>
+            <div class="footer-sponsor">
+                <i class="fa-solid fa-handshake-angle"></i> برعاية: <strong>م. ياسر المهندس</strong> — مجتمع التصميم والذكاء الاصطناعي
+            </div>
+
+            <p style="margin-top: 25px; font-size: 0.8rem; opacity: 0.7;">
+                جميع الحقوق محفوظة © 2026 — AI NAVIGATORS | AISEL TeachFlow OS
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript: Interactivity, Filters, and Content Protection -->
+    <script>
+        // --- 1. Filter Variables ---
+        let currentStage = 'all';
+        let currentCategory = 'all';
+
+        function setStage(stage, btn) {
+            currentStage = stage;
+            document.querySelectorAll('#stageTabs .pill-tab').forEach(b => {
+                b.classList.remove('active', 'active-stage');
+            });
+            btn.classList.add('active-stage', 'active');
+            filterCards();
+        }
+
+        function setCategory(cat, btn) {
+            currentCategory = cat;
+            document.querySelectorAll('#categoryTabs .pill-tab').forEach(b => {
+                b.classList.remove('active');
+            });
+            btn.classList.add('active');
+            filterCards();
+        }
+
+        function filterCards() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            const cards = document.querySelectorAll('.prompt-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                const cardStage = card.getAttribute('data-stage');
+                const title = card.querySelector('.card-title').innerText.toLowerCase();
+                const desc = card.querySelector('.card-desc').innerText.toLowerCase();
+
+                const matchStage = (currentStage === 'all') || (cardStage === currentStage);
+                const matchCategory = (currentCategory === 'all') || (cardCat === currentCategory);
+                const matchQuery = !query || title.includes(query) || desc.includes(query) || cardCat.toLowerCase().includes(query);
+
+                if (matchStage && matchCategory && matchQuery) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            document.getElementById('visibleCount').innerText = `يتم عرض: ${visibleCount} نموذجاً مختاراً من أصل 1,100+`;
+        }
+
+        // --- 2. Copy Prompt Logic for Free Cards ---
+        function copyPrompt(btn, text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalHtml = btn.innerHTML;
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> تم النسخ بنجاح!';
+                btn.style.background = '#10b981';
+                btn.style.color = '#fff';
+                setTimeout(() => {
+                    btn.innerHTML = originalHtml;
+                    btn.style.background = '';
+                    btn.style.color = '';
+                }, 2500);
+            }).catch(err => {
+                alert('تم نسخ البرومبت بنجاح إلى الحافظة!');
+            });
+        }
+
+        // --- 3. Unlock Modal Logic ---
+        function openUnlockModal(promptName) {
+            document.getElementById('modalPromptTitle').innerText = promptName;
+            const message = encodeURIComponent(`مرحباً أبو أيسل، أود الاشتراك في عرض الحقيبة الكاملة لمكتبة برومبتات المعلم الذكي (399 ج.م) للحصول على: ${promptName}`);
+            document.getElementById('modalWhatsappLink').href = `https://wa.me/201037489146?text=${message}`;
+            document.getElementById('unlockModal').classList.add('active');
+        }
+
+        function closeUnlockModal() {
+            document.getElementById('unlockModal').classList.remove('active');
+        }
+
+        document.getElementById('unlockModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeUnlockModal();
+            }
+        });
+
+        // --- 4. Content Protection Shield (Skill Implementation) ---
+        (function() {
+            const toast = document.getElementById('securityToast');
+            let toastTimeout = null;
+
+            function triggerSecurityWarning() {
+                toast.classList.add('show');
+                if (toastTimeout) clearTimeout(toastTimeout);
+                toastTimeout = setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3500);
+            }
+
+            // A. منع كليك يمين
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                triggerSecurityWarning();
+                return false;
+            });
+
+            // B. منع تحديد وسحب النصوص
+            document.addEventListener('selectstart', function(e) {
+                if (e.target.tagName !== 'INPUT') {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+
+            document.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+
+            // C. منع النسخ المباشر غير المصرح به
+            document.addEventListener('copy', function(e) {
+                if (e.target.tagName !== 'INPUT') {
+                    e.preventDefault();
+                    triggerSecurityWarning();
+                    return false;
+                }
+            });
+
+            document.addEventListener('cut', function(e) {
+                e.preventDefault();
+                triggerSecurityWarning();
+                return false;
+            });
+
+            // D. اعتراض اختصارات لوحة المفاتيح
+            document.addEventListener('keydown', function(e) {
+                const isCtrl = e.ctrlKey || e.metaKey;
+
+                // F12
+                if (e.key === 'F12' || e.keyCode === 123) {
+                    e.preventDefault();
+                    triggerSecurityWarning();
+                    return false;
+                }
+
+                // Ctrl+Shift+I / J / C
+                if (isCtrl && e.shiftKey && (
+                    e.key === 'I' || e.key === 'i' || e.keyCode === 73 ||
+                    e.key === 'J' || e.key === 'j' || e.keyCode === 74 ||
+                    e.key === 'C' || e.key === 'c' || e.keyCode === 67
+                )) {
+                    e.preventDefault();
+                    triggerSecurityWarning();
+                    return false;
+                }
+
+                // Ctrl+U (عرض المصدر)
+                if (isCtrl && (e.key === 'u' || e.key === 'U' || e.keyCode === 85)) {
+                    e.preventDefault();
+                    triggerSecurityWarning();
+                    return false;
+                }
+
+                // Ctrl+S (حفظ الصفحة)
+                if (isCtrl && (e.key === 's' || e.key === 'S' || e.keyCode === 83)) {
+                    e.preventDefault();
+                    triggerSecurityWarning();
+                    return false;
+                }
+
+                // Ctrl+P (الطباعة)
+                if (isCtrl && (e.key === 'p' || e.key === 'P' || e.keyCode === 80)) {
+                    e.preventDefault();
+                    triggerSecurityWarning();
+                    return false;
+                }
+
+                // Ctrl+A (تحديد الكل)
+                if (isCtrl && (e.key === 'a' || e.key === 'A' || e.keyCode === 65)) {
+                    if (e.target.tagName !== 'INPUT') {
+                        e.preventDefault();
+                        triggerSecurityWarning();
+                        return false;
+                    }
+                }
+
+                // Ctrl+C (النسخ العام)
+                if (isCtrl && (e.key === 'c' || e.key === 'C' || e.keyCode === 67)) {
+                    if (e.target.tagName !== 'INPUT') {
+                        e.preventDefault();
+                        triggerSecurityWarning();
+                        return false;
+                    }
+                }
+            });
+
+            // E. رسالة تحذيرية في الكونسول
+            try {
+                console.log("%c⚠️ درع حماية الملكية الفكرية — AI NAVIGATORS", "color: #ef4444; font-size: 20px; font-weight: bold;");
+                console.log("%cجميع البرومبتات والمواد التعليمية محمية بحقوق الطبع والنشر © 2026. غير مصرح بالنسخ أو إعادة التوزيع.", "font-size: 13px; color: #e5b95f;");
+            } catch(e) {}
+        })();
+    </script>
+</body>
+</html>
